@@ -1,11 +1,14 @@
 
 <%=render 'layouts/messages' %>
-
 <%if @stock %>
+
+
   <div class="card card-header d-inline-block">
     <strong>Symbol:</strong><%=@stock.ticker %>
     <strong>Name:</strong><%=@stock.name %>
     <strong>Price:</strong><%=@stock.last_price %>
+    <%=link_to 'Add to my portflio', user_stocks_path(user:current_user, ticker: @stock.ticker),
+               class:"btn btn-success hover ml-2", method: :post %>
 
   </div>
 
